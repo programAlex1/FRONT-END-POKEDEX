@@ -1,0 +1,16 @@
+ .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: gray; 
+  }
+  
+  .title h1 {
+    margin: 0; 
+  }
+  
+  .title img {
+    width: 200px;
+    margin: 0 10px; 
+  }

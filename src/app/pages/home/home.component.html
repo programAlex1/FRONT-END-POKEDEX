@@ -1,0 +1,7 @@
+<div class="container responsive-grid">
+    <app-card-pokemon *ngFor="let pokemon of listPokemon" [data]="pokemon" (click)="cardClick($event)"></app-card-pokemon>
+</div>
+<div class="buttons">
+<button mat-button [disabled]="page<2" (click)="afterPage()">After</button>
+<button mat-button (click)="nextPage()">Next</button>
+</div>

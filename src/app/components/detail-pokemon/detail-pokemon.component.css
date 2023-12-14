@@ -1,0 +1,35 @@
+*{
+  font-family: 'Times New Roman', Times, serif;
+}
+.card-container{
+  background-color: #268E00;
+  margin: 0px;
+  padding: 20px;
+}
+.example-card {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 0px;
+    padding-top: 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  img{
+    image-rendering: pixelated;
+    background-color: #930001;
+  }
+  mat-card-header{
+    background-color: #930001;
+    padding-top: 10px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+  }
+  mat-card-title{
+    text-transform: uppercase;
+    color : black;    
+    font-family: 'Times New Roman', Times, serif     
+  }
+  mat-card-content{
+    background-color: #930001;
+  }
