@@ -55,6 +55,7 @@
 .img2{
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 .img3{
   display: flex;
@@ -71,7 +72,6 @@
 .img4{
   width: 24px;
   height: 24px;
-  cursor: pointer;
 }
 .detail{
   display: flex;
