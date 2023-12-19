@@ -1,21 +1,81 @@
 <div class="card-container">
-<mat-card class="example-card">
-    <mat-card-header>
-         <mat-card-title>{{pokemon?.name}}</mat-card-title>
-      <mat-card-subtitle>N°: {{pokemon?.id}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{pokemon?.sprites?.front_default}}" alt="Photo of pokemon">
-    <mat-card-content>
-      <p>{{description}}</p>
-      <span>Altura: {{pokemon?.height}}</span> <br> <br> 
-      <span>Peso: {{pokemon?.weight}}</span> <br> <br> 
-      <span>Experiencia Base: {{pokemon?.base_experience}}</span> <br><br> 
-      <p><span *ngFor="let type of pokemon?.types">Tipo: {{type.type.name | titlecase}} <br><br> </span></p>     
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button></button>
-      <button mat-button></button>
-    </mat-card-actions>
-</mat-card>
-</div>
+<div class="card"  [ngStyle]="{'background-color': getFirstTypeColor()}">
+ <img src="/assets/img/pokeball.png" alt="aaa" class="logo">
+  <div class="title">
+      <a (click)="goBack()"><img src="/assets/img/icon.svg" alt="" class="img1"></a>
+      <span class="poke">{{pokemon?.name | titlecase}}</span>
+      <span class="num">#{{pokemon?.id}}</span>
+  </div>
+  <div class="image">
+      <img src="/assets/img/icon1.svg" alt="" class="img2">
+      <img src="{{pokemon?.sprites?.front_default}}" alt="" class="img3">
+      <img src="/assets/img/icon2.svg" alt="" class="img4">
 
+  </div>
+  <div class="detail">
+      <div class="type">
+          <div class="content" *ngFor="let type of pokemon?.types" [ngStyle]="{'background-color': getColorForType(type.type.name)}">
+              <span class="texto">{{type.type.name | titlecase}}</span>
+          </div>
+      </div>
+      <div class="about">
+          <span>Acerca de</span>
+      </div>
+      <div class="atributte">
+          <div class="colum">
+              <div class="colum2">
+                  <span class="texto2">{{pokemon?.weight}}kg</span>
+              </div>
+              <div class="colum3">
+                  Peso
+              </div>
+          </div>
+          <div class="separador"></div>
+          <div class="colum">
+              <div class="colum2">
+                  <span class="texto2">{{pokemon?.height}}m</span>
+              </div>
+              <div class="colum3">
+                  Altura
+              </div>
+          </div>
+          <div class="separador"></div>
+          <div class="colum">
+              <div class="colum4" *ngFor="let abilitie of pokemon?.abilities">
+                  <span class="texto2">{{abilitie.ability.name| titlecase}}</span>
+              </div>
+              <div class="colum3">
+                Habilidades
+              </div>
+          </div>
+      </div>
+      <div class="description2">
+          {{description}}
+      </div>
+      <div class="stats">
+          Estadisticas Base
+      </div>
+      <div class="base-stats">
+          <div class="label">
+              <span class="eo">EXP</span>             
+          </div>
+          <div class="divider">                  
+          </div>
+          <div class="data">
+              <span class="eo2">{{pokemon?.base_experience}}</span>                         
+          </div>
+          <div class="chart">
+              <div class="barra">
+                  <div class="value">
+                      <div class="retangle">
+                          
+                      </div>
+                  </div>
+                  <div class="backgro"></div>
+              </div>
+              
+          </div>
+      </div>
+  </div>
+</div>
+</div>

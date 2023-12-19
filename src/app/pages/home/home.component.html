@@ -3,5 +3,9 @@
 </div>
 <div class="buttons">
 <button mat-button [disabled]="page<2" (click)="afterPage()">After</button>
+<div>
+  <label for="pageNumber">Número de Página:</label>
+  <input type="number" id="pageNumber" [(ngModel)]="page" (ngModelChange)="numPage()" />
+</div>
 <button mat-button (click)="nextPage()">Next</button>
 </div>

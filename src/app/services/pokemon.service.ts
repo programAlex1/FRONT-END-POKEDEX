@@ -13,7 +13,7 @@ export class PokemonService {
   private urlApi:string = environment.endpoint;
 
 
-  async getByPage(page:number,size: number = 16):Promise<Result[]>{
+  async getByPage(page:number,size: number = 14):Promise<Result[]>{
     const offset= size*(page-1);
     const rest = await fetch(`${this.urlApi}?offset=${offset}&limit=${size}`);
     const restJson =await rest.json();

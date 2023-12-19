@@ -1,3 +1,9 @@
+mat-card{
+    width: 170px;
+    height: 300px;
+    overflow: hidden;
+    cursor: pointer;
+}
 mat-card-header {
     display: flex;
     justify-content: center;
@@ -7,5 +13,21 @@ mat-card-title{
     text-align: center;
 }
 img{
+    width: 125px;
+    height: 125px;
+    margin: auto;
     image-rendering: pixelated;
 }
+.actions {
+    position: absolute;
+    bottom: 0; 
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    padding: 8px; 
+  }
+  
+  .left-button,
+  .right-button {
+    width: 48%; 
+  }

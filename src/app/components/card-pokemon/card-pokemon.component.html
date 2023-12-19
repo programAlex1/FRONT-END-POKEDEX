@@ -1,16 +1,16 @@
 <div class="container responsive-grid" (click)="click.emit(id)">
     <mat-card>
         <mat-card-header>
-            <mat-card-title *ngIf="data">{{data?.name | titlecase}}</mat-card-title>
+            <mat-card-title>{{data?.name | titlecase}}</mat-card-title>
         </mat-card-header>
         <br>
         <img mat-card-image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{id}}.png" alt="pokemon">
         <mat-card-content>
             <br>
         </mat-card-content>
-        <mat-card-actions>
-            <button mat-button>Pick</button>
-            <button mat-button>Share</button>
+        <mat-card-actions class="actions">
+            <button mat-button class="left-button">Pick</button>
+            <button mat-button class="right-button">Like</button>
         </mat-card-actions>
     </mat-card>
 </div>

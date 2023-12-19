@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Result } from 'src/app/interfaces/pokemon';
 import { Pokemon } from 'src/app/interfaces/pokemon-specification';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -11,7 +11,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class HomeComponent implements OnInit{
 
-  constructor(private _pokemonService : PokemonService, private _router:Router){}
+  constructor(private _pokemonService : PokemonService, private _router:Router, private _activatedRoute: ActivatedRoute){}
 
   listPokemon:Result[] = [];
 
@@ -19,7 +19,12 @@ export class HomeComponent implements OnInit{
   pickPokemon?:Pokemon;
 
   ngOnInit(): void {
-    this.loadList();
+    this._activatedRoute.queryParams.subscribe((params) => {
+      const pageQueryParam = params['page'];
+      this.page = pageQueryParam ? +pageQueryParam : 1;
+      this.loadList();
+    }); 
+  
   } 
 
   async loadList(){
@@ -28,17 +33,32 @@ export class HomeComponent implements OnInit{
 
   nextPage(): void {
     this.page++;
-    this.loadList();
+    this.updateUrl();
   }
 
   afterPage(): void {
     this.page--;
-    this.loadList();
+    this.updateUrl();
+  }
+
+  numPage(): void{
+    if (this.page !== 0 && this.page !== null && this.page !== undefined) {
+      this.updateUrl();
+      this.loadList();
+    }
   }
 
   async cardClick(id:string){
     this.pickPokemon =await this._pokemonService.getById(id);
     this._router.navigateByUrl(`detail/${id}`)
+  }
+  private updateUrl() {
+    // Actualiza la URL con el nuevo valor de la página
+    this._router.navigate([], {
+      relativeTo: this._activatedRoute,
+      queryParams: { page: this.page },
+      queryParamsHandling: 'merge'
+    });
   }
 
 }
