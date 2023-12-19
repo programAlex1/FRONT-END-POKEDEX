@@ -7,8 +7,9 @@
       <span class="num">#{{pokemon?.id}}</span>
   </div>
   <div class="image">
-      <img src="/assets/img/icon1.svg" alt="" class="img2">
-      <img src="{{pokemon?.sprites?.front_default}}" alt="" class="img3">
+      <img src="/assets/img/icon1.svg" (click)="toggleImage()" alt="" class="img2">
+      <img *ngIf="!isBackImage" [src]="pokemon?.sprites?.front_default" alt="" class="img3">
+      <img *ngIf="isBackImage" [src]="pokemon?.sprites?.back_default" alt="" class="img3">
       <img src="/assets/img/icon2.svg" alt="" class="img4">
 
   </div>

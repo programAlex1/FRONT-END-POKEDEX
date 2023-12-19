@@ -14,6 +14,8 @@ export class DetailPokemonComponent implements OnInit{
 
   pokemon?: Pokemon;
   description : string ="";
+  isBackImage: boolean = false;
+
 
   constructor(private _pokemonService: PokemonService,private _router:ActivatedRoute,private _location: Location){
     this._router.params.subscribe(param =>{
@@ -78,7 +80,7 @@ export class DetailPokemonComponent implements OnInit{
       case 'water':
       return '#6493EB';
       default:
-        return 'gray'; // Color predeterminado para tipos desconocidos
+        return 'gray'; 
     }
   }
 
@@ -86,6 +88,9 @@ export class DetailPokemonComponent implements OnInit{
     this._location.back();
   }
 
+  toggleImage() {
+    this.isBackImage = !this.isBackImage;
+  }
 }
 
 

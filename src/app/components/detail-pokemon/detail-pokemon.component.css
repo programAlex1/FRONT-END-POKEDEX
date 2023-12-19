@@ -71,6 +71,7 @@
 .img4{
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 .detail{
   display: flex;
