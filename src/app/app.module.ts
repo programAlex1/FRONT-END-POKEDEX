@@ -12,6 +12,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule} from '@angular/material/button';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { DetailPokemonComponent } from './components/detail-pokemon/detail-pokemon.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { DetailPokemonComponent } from './components/detail-pokemon/detail-pokem
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
